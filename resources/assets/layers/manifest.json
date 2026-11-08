@@ -1,0 +1,770 @@
+[
+  {
+    "id": "gold-frame",
+    "file": "assets/layers/gold-frame.png",
+    "srcRect": {
+      "x": 4,
+      "y": 8,
+      "w": 675,
+      "h": 994
+    },
+    "cardRect": {
+      "left": 5.4,
+      "top": 10.8,
+      "width": 910.6,
+      "height": 1340.5
+    }
+  },
+  {
+    "id": "flower-tl",
+    "file": "assets/layers/flower-tl.png",
+    "srcRect": {
+      "x": 0,
+      "y": 0,
+      "w": 219,
+      "h": 166
+    },
+    "cardRect": {
+      "left": 0,
+      "top": 0,
+      "width": 295.4,
+      "height": 223.9
+    }
+  },
+  {
+    "id": "flower-tr",
+    "file": "assets/layers/flower-tr.png",
+    "srcRect": {
+      "x": 463,
+      "y": 0,
+      "w": 219,
+      "h": 166
+    },
+    "cardRect": {
+      "left": 624.6,
+      "top": 0,
+      "width": 295.4,
+      "height": 223.9
+    }
+  },
+  {
+    "id": "cap-ribbon-left",
+    "file": "assets/layers/cap-ribbon-left.png",
+    "srcRect": {
+      "x": 15,
+      "y": 108,
+      "w": 134,
+      "h": 408
+    },
+    "cardRect": {
+      "left": 20.2,
+      "top": 145.7,
+      "width": 180.8,
+      "height": 550.2
+    }
+  },
+  {
+    "id": "cap-ribbon-right",
+    "file": "assets/layers/cap-ribbon-right.png",
+    "srcRect": {
+      "x": 533,
+      "y": 108,
+      "w": 134,
+      "h": 408
+    },
+    "cardRect": {
+      "left": 719,
+      "top": 145.7,
+      "width": 180.8,
+      "height": 550.2
+    }
+  },
+  {
+    "id": "child-girl",
+    "file": "assets/layers/child-girl.png",
+    "srcRect": {
+      "x": 256,
+      "y": 18,
+      "w": 269,
+      "h": 262
+    },
+    "cardRect": {
+      "left": 345.3,
+      "top": 24.3,
+      "width": 362.9,
+      "height": 353.3
+    }
+  },
+  {
+    "id": "child-boy",
+    "file": "assets/layers/child-boy.png",
+    "srcRect": {
+      "x": 205,
+      "y": 8,
+      "w": 127,
+      "h": 287
+    },
+    "cardRect": {
+      "left": 276.5,
+      "top": 10.8,
+      "width": 171.3,
+      "height": 387.1
+    }
+  },
+  {
+    "id": "bg-stars-top",
+    "file": "assets/layers/bg-stars-top.png",
+    "srcRect": {
+      "x": 128,
+      "y": 25,
+      "w": 428,
+      "h": 244
+    },
+    "cardRect": {
+      "left": 172.7,
+      "top": 33.7,
+      "width": 577.4,
+      "height": 329.1
+    }
+  },
+  {
+    "id": "crown-divider-top",
+    "file": "assets/layers/crown-divider-top.png",
+    "srcRect": {
+      "x": 148,
+      "y": 271,
+      "w": 387,
+      "h": 28
+    },
+    "cardRect": {
+      "left": 199.6,
+      "top": 365.5,
+      "width": 522.1,
+      "height": 37.8
+    }
+  },
+  {
+    "id": "mini-cap-left",
+    "file": "assets/layers/mini-cap-left.png",
+    "srcRect": {
+      "x": 80,
+      "y": 290,
+      "w": 56,
+      "h": 43
+    },
+    "cardRect": {
+      "left": 107.9,
+      "top": 391.1,
+      "width": 75.5,
+      "height": 58
+    }
+  },
+  {
+    "id": "header-invitacion",
+    "file": "assets/layers/header-invitacion.png",
+    "srcRect": {
+      "x": 138,
+      "y": 298,
+      "w": 412,
+      "h": 35
+    },
+    "cardRect": {
+      "left": 186.2,
+      "top": 401.9,
+      "width": 555.8,
+      "height": 47.2
+    }
+  },
+  {
+    "id": "mini-cap-right",
+    "file": "assets/layers/mini-cap-right.png",
+    "srcRect": {
+      "x": 551,
+      "y": 290,
+      "w": 55,
+      "h": 43
+    },
+    "cardRect": {
+      "left": 743.3,
+      "top": 391.1,
+      "width": 74.2,
+      "height": 58
+    }
+  },
+  {
+    "id": "title-promocion",
+    "file": "assets/layers/title-promocion.png",
+    "srcRect": {
+      "x": 64,
+      "y": 333,
+      "w": 558,
+      "h": 80
+    },
+    "cardRect": {
+      "left": 86.3,
+      "top": 449.1,
+      "width": 752.7,
+      "height": 107.9
+    }
+  },
+  {
+    "id": "ribbon-top-empty",
+    "file": "assets/layers/ribbon-top-empty.png",
+    "srcRect": {
+      "x": 52,
+      "y": 386,
+      "w": 579,
+      "h": 83
+    },
+    "cardRect": {
+      "left": 70.1,
+      "top": 520.6,
+      "width": 781.1,
+      "height": 111.9
+    }
+  },
+  {
+    "id": "ribbon-top-text",
+    "file": "assets/layers/ribbon-top-text.png",
+    "srcRect": {
+      "x": 156,
+      "y": 391,
+      "w": 372,
+      "h": 39
+    },
+    "cardRect": {
+      "left": 210.4,
+      "top": 527.3,
+      "width": 501.8,
+      "height": 52.6
+    }
+  },
+  {
+    "id": "intro-line-1",
+    "file": "assets/layers/intro-line-1.png",
+    "srcRect": {
+      "x": 154,
+      "y": 435,
+      "w": 405,
+      "h": 25
+    },
+    "cardRect": {
+      "left": 207.7,
+      "top": 586.7,
+      "width": 546.3,
+      "height": 33.7
+    }
+  },
+  {
+    "id": "intro-line-2",
+    "file": "assets/layers/intro-line-2.png",
+    "srcRect": {
+      "x": 175,
+      "y": 459,
+      "w": 338,
+      "h": 18
+    },
+    "cardRect": {
+      "left": 236.1,
+      "top": 619,
+      "width": 456,
+      "height": 24.3
+    }
+  },
+  {
+    "id": "madrina-crown",
+    "file": "assets/layers/madrina-crown.png",
+    "srcRect": {
+      "x": 288,
+      "y": 473,
+      "w": 110,
+      "h": 21
+    },
+    "cardRect": {
+      "left": 388.5,
+      "top": 637.9,
+      "width": 148.4,
+      "height": 28.3
+    }
+  },
+  {
+    "id": "madrina-plaque-empty",
+    "file": "assets/layers/madrina-plaque-empty.png",
+    "srcRect": {
+      "x": 103,
+      "y": 486,
+      "w": 482,
+      "h": 106
+    },
+    "cardRect": {
+      "left": 138.9,
+      "top": 655.4,
+      "width": 650.2,
+      "height": 143
+    }
+  },
+  {
+    "id": "madrina-wing-left",
+    "file": "assets/layers/madrina-wing-left.png",
+    "srcRect": {
+      "x": 62,
+      "y": 502,
+      "w": 41,
+      "h": 74
+    },
+    "cardRect": {
+      "left": 83.6,
+      "top": 677,
+      "width": 55.3,
+      "height": 99.8
+    }
+  },
+  {
+    "id": "madrina-wing-right",
+    "file": "assets/layers/madrina-wing-right.png",
+    "srcRect": {
+      "x": 585,
+      "y": 502,
+      "w": 42,
+      "h": 74
+    },
+    "cardRect": {
+      "left": 789.1,
+      "top": 677,
+      "width": 56.7,
+      "height": 99.8
+    }
+  },
+  {
+    "id": "madrina-role-text",
+    "file": "assets/layers/madrina-role-text.png",
+    "srcRect": {
+      "x": 142,
+      "y": 498,
+      "w": 401,
+      "h": 35
+    },
+    "cardRect": {
+      "left": 191.6,
+      "top": 671.6,
+      "width": 540.9,
+      "height": 47.2
+    }
+  },
+  {
+    "id": "madrina-name-text",
+    "file": "assets/layers/madrina-name-text.png",
+    "srcRect": {
+      "x": 126,
+      "y": 532,
+      "w": 433,
+      "h": 52
+    },
+    "cardRect": {
+      "left": 170,
+      "top": 717.5,
+      "width": 584.1,
+      "height": 70.1
+    }
+  },
+  {
+    "id": "fiesta-lead",
+    "file": "assets/layers/fiesta-lead.png",
+    "srcRect": {
+      "x": 138,
+      "y": 596,
+      "w": 413,
+      "h": 27
+    },
+    "cardRect": {
+      "left": 186.2,
+      "top": 803.8,
+      "width": 557.1,
+      "height": 36.4
+    }
+  },
+  {
+    "id": "fiesta-wing-left",
+    "file": "assets/layers/fiesta-wing-left.png",
+    "srcRect": {
+      "x": 48,
+      "y": 622,
+      "w": 42,
+      "h": 49
+    },
+    "cardRect": {
+      "left": 64.8,
+      "top": 838.8,
+      "width": 56.7,
+      "height": 66.1
+    }
+  },
+  {
+    "id": "fiesta-title",
+    "file": "assets/layers/fiesta-title.png",
+    "srcRect": {
+      "x": 90,
+      "y": 622,
+      "w": 514,
+      "h": 49
+    },
+    "cardRect": {
+      "left": 121.4,
+      "top": 838.8,
+      "width": 693.4,
+      "height": 66.1
+    }
+  },
+  {
+    "id": "fiesta-wing-right",
+    "file": "assets/layers/fiesta-wing-right.png",
+    "srcRect": {
+      "x": 604,
+      "y": 622,
+      "w": 39,
+      "h": 49
+    },
+    "cardRect": {
+      "left": 814.8,
+      "top": 838.8,
+      "width": 52.6,
+      "height": 66.1
+    }
+  },
+  {
+    "id": "fiesta-sub-1",
+    "file": "assets/layers/fiesta-sub-1.png",
+    "srcRect": {
+      "x": 136,
+      "y": 674,
+      "w": 445,
+      "h": 23
+    },
+    "cardRect": {
+      "left": 183.5,
+      "top": 909,
+      "width": 600.3,
+      "height": 31
+    }
+  },
+  {
+    "id": "fiesta-sub-2",
+    "file": "assets/layers/fiesta-sub-2.png",
+    "srcRect": {
+      "x": 240,
+      "y": 697,
+      "w": 217,
+      "h": 20
+    },
+    "cardRect": {
+      "left": 323.8,
+      "top": 940,
+      "width": 292.7,
+      "height": 27
+    }
+  },
+  {
+    "id": "detail-calendar-icon",
+    "file": "assets/layers/detail-calendar-icon.png",
+    "srcRect": {
+      "x": 60,
+      "y": 725,
+      "w": 54,
+      "h": 62
+    },
+    "cardRect": {
+      "left": 80.9,
+      "top": 977.8,
+      "width": 72.8,
+      "height": 83.6
+    }
+  },
+  {
+    "id": "detail-dia-text",
+    "file": "assets/layers/detail-dia-text.png",
+    "srcRect": {
+      "x": 126,
+      "y": 725,
+      "w": 148,
+      "h": 66
+    },
+    "cardRect": {
+      "left": 170,
+      "top": 977.8,
+      "width": 199.6,
+      "height": 89
+    }
+  },
+  {
+    "id": "detail-pin-icon",
+    "file": "assets/layers/detail-pin-icon.png",
+    "srcRect": {
+      "x": 290,
+      "y": 725,
+      "w": 47,
+      "h": 62
+    },
+    "cardRect": {
+      "left": 391.2,
+      "top": 977.8,
+      "width": 63.4,
+      "height": 83.6
+    }
+  },
+  {
+    "id": "detail-lugar-text",
+    "file": "assets/layers/detail-lugar-text.png",
+    "srcRect": {
+      "x": 340,
+      "y": 725,
+      "w": 107,
+      "h": 66
+    },
+    "cardRect": {
+      "left": 458.7,
+      "top": 977.8,
+      "width": 144.3,
+      "height": 89
+    }
+  },
+  {
+    "id": "detail-clock-icon",
+    "file": "assets/layers/detail-clock-icon.png",
+    "srcRect": {
+      "x": 464,
+      "y": 725,
+      "w": 61,
+      "h": 63
+    },
+    "cardRect": {
+      "left": 625.9,
+      "top": 977.8,
+      "width": 82.3,
+      "height": 85
+    }
+  },
+  {
+    "id": "detail-hora-text",
+    "file": "assets/layers/detail-hora-text.png",
+    "srcRect": {
+      "x": 526,
+      "y": 738,
+      "w": 117,
+      "h": 41
+    },
+    "cardRect": {
+      "left": 709.6,
+      "top": 995.3,
+      "width": 157.8,
+      "height": 55.3
+    }
+  },
+  {
+    "id": "divider-v1",
+    "file": "assets/layers/divider-v1.png",
+    "srcRect": {
+      "x": 115,
+      "y": 725,
+      "w": 10,
+      "h": 66
+    },
+    "cardRect": {
+      "left": 155.1,
+      "top": 977.8,
+      "width": 13.5,
+      "height": 89
+    }
+  },
+  {
+    "id": "divider-v2",
+    "file": "assets/layers/divider-v2.png",
+    "srcRect": {
+      "x": 276,
+      "y": 725,
+      "w": 11,
+      "h": 66
+    },
+    "cardRect": {
+      "left": 372.3,
+      "top": 977.8,
+      "width": 14.8,
+      "height": 89
+    }
+  },
+  {
+    "id": "divider-v3",
+    "file": "assets/layers/divider-v3.png",
+    "srcRect": {
+      "x": 450,
+      "y": 725,
+      "w": 11,
+      "h": 66
+    },
+    "cardRect": {
+      "left": 607,
+      "top": 977.8,
+      "width": 14.8,
+      "height": 89
+    }
+  },
+  {
+    "id": "divider-dots",
+    "file": "assets/layers/divider-dots.png",
+    "srcRect": {
+      "x": 270,
+      "y": 791,
+      "w": 146,
+      "h": 14
+    },
+    "cardRect": {
+      "left": 364.2,
+      "top": 1066.8,
+      "width": 197,
+      "height": 18.9
+    }
+  },
+  {
+    "id": "emotional-line-1",
+    "file": "assets/layers/emotional-line-1.png",
+    "srcRect": {
+      "x": 105,
+      "y": 805,
+      "w": 478,
+      "h": 22
+    },
+    "cardRect": {
+      "left": 141.6,
+      "top": 1085.6,
+      "width": 644.8,
+      "height": 29.7
+    }
+  },
+  {
+    "id": "emotional-line-2",
+    "file": "assets/layers/emotional-line-2.png",
+    "srcRect": {
+      "x": 148,
+      "y": 827,
+      "w": 389,
+      "h": 20
+    },
+    "cardRect": {
+      "left": 199.6,
+      "top": 1115.3,
+      "width": 524.8,
+      "height": 27
+    }
+  },
+  {
+    "id": "ribbon-bottom-empty",
+    "file": "assets/layers/ribbon-bottom-empty.png",
+    "srcRect": {
+      "x": 134,
+      "y": 848,
+      "w": 423,
+      "h": 45
+    },
+    "cardRect": {
+      "left": 180.8,
+      "top": 1143.6,
+      "width": 570.6,
+      "height": 60.7
+    }
+  },
+  {
+    "id": "ribbon-bottom-text",
+    "file": "assets/layers/ribbon-bottom-text.png",
+    "srcRect": {
+      "x": 172,
+      "y": 851,
+      "w": 345,
+      "h": 35
+    },
+    "cardRect": {
+      "left": 232,
+      "top": 1147.7,
+      "width": 465.4,
+      "height": 47.2
+    }
+  },
+  {
+    "id": "closing-line-1",
+    "file": "assets/layers/closing-line-1.png",
+    "srcRect": {
+      "x": 165,
+      "y": 895,
+      "w": 356,
+      "h": 22
+    },
+    "cardRect": {
+      "left": 222.6,
+      "top": 1207,
+      "width": 480.2,
+      "height": 29.7
+    }
+  },
+  {
+    "id": "closing-line-2",
+    "file": "assets/layers/closing-line-2.png",
+    "srcRect": {
+      "x": 230,
+      "y": 917,
+      "w": 223,
+      "h": 19
+    },
+    "cardRect": {
+      "left": 310.3,
+      "top": 1236.7,
+      "width": 300.8,
+      "height": 25.6
+    }
+  },
+  {
+    "id": "bottom-heart",
+    "file": "assets/layers/bottom-heart.png",
+    "srcRect": {
+      "x": 258,
+      "y": 937,
+      "w": 167,
+      "h": 33
+    },
+    "cardRect": {
+      "left": 348,
+      "top": 1263.7,
+      "width": 225.3,
+      "height": 44.5
+    }
+  },
+  {
+    "id": "flower-bl",
+    "file": "assets/layers/flower-bl.png",
+    "srcRect": {
+      "x": 0,
+      "y": 785,
+      "w": 251,
+      "h": 239
+    },
+    "cardRect": {
+      "left": 0,
+      "top": 1058.7,
+      "width": 338.6,
+      "height": 322.3
+    }
+  },
+  {
+    "id": "flower-br",
+    "file": "assets/layers/flower-br.png",
+    "srcRect": {
+      "x": 432,
+      "y": 785,
+      "w": 250,
+      "h": 239
+    },
+    "cardRect": {
+      "left": 582.8,
+      "top": 1058.7,
+      "width": 337.2,
+      "height": 322.3
+    }
+  }
+]

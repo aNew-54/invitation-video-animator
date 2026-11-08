@@ -1,0 +1,313 @@
+<template>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; font-family: Montserrat, sans-serif; }
+    .bokeh-orb { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255, 232, 165, 0.65) 0%, rgba(255, 210, 90, 0.22) 52%, rgba(255, 210, 90, 0) 80%); pointer-events: none; z-index: 2; }
+    #camera-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 960px; z-index: 10; }
+    #card-wrapper {
+      position: absolute; left: 80px; top: 270px; width: 920px; height: 1381px; border-radius: 18px;
+      box-shadow: 0 28px 70px rgba(155, 115, 55, 0.24), 0 0 48px rgba(255, 222, 135, 0.18);
+      background-color: #fffdf9; background-image: url('assets/layers/bg-paper.png');
+      background-size: 100% 100%; background-repeat: no-repeat; overflow: hidden;
+    }
+    .inv-layer { position: absolute; background-size: 100% 100%; background-repeat: no-repeat; pointer-events: none; will-change: transform, opacity, filter, clip-path; }
+    #svg-gold-border { position: absolute; left: 0; top: 0; width: 920px; height: 1381px; pointer-events: none; z-index: 9; }
+    .light-sweep-container { position: absolute; overflow: hidden; pointer-events: none; mix-blend-mode: screen; z-index: 80; }
+    .light-sweep-beam {
+      position: absolute; top: 0; bottom: 0; width: 140%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255, 238, 175, 0.38) 42%, rgba(255, 255, 255, 0.92) 50%, rgba(255, 215, 95, 0.45) 58%, transparent 80%);
+    }
+    .star-sparkle { position: absolute; width: 46px; height: 46px; pointer-events: none; z-index: 90; filter: drop-shadow(0 0 10px rgba(255, 220, 55, 0.95)) drop-shadow(0 0 4px #ffffff); }
+    #card-border-gleam { position: absolute; inset: 0; border: 3px solid rgba(255, 225, 120, 0.6); border-radius: 18px; pointer-events: none; z-index: 95; box-shadow: inset 0 0 24px rgba(255, 215, 0, 0.3); }
+    #particles-stage { position: absolute; inset: 0; pointer-events: none; z-index: 30; }
+    .gold-dust { position: absolute; border-radius: 50%; background: radial-gradient(circle, #ffffff 12%, #ffe680 52%, rgba(255, 200, 50, 0) 82%); filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.85)); }
+  </style>
+
+  <div id="root" data-composition-id="invitacion-scene" data-width="1080" data-height="1920">
+    <div id="bokeh-container" data-layout-ignore="true">
+      <div class="bokeh-orb" id="orb-0" style="left:70px;top:130px;width:145px;height:145px;"></div><div class="bokeh-orb" id="orb-1" style="left:875px;top:210px;width:165px;height:165px;"></div>
+      <div class="bokeh-orb" id="orb-2" style="left:55px;top:910px;width:125px;height:125px;"></div><div class="bokeh-orb" id="orb-3" style="left:915px;top:1090px;width:155px;height:155px;"></div>
+      <div class="bokeh-orb" id="orb-4" style="left:115px;top:1680px;width:185px;height:185px;"></div><div class="bokeh-orb" id="orb-5" style="left:815px;top:1715px;width:175px;height:175px;"></div>
+    </div>
+
+    <div id="camera-stage" data-layout-allow-overflow="true">
+      <div id="card-wrapper" data-layout-allow-overflow="true" data-hold="true">
+        <svg id="svg-gold-border" viewBox="0 0 920 1381" data-layout-ignore="true">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C8962E" />
+              <stop offset="28%" stop-color="#FFF0A8" />
+              <stop offset="52%" stop-color="#D4AF37" />
+              <stop offset="78%" stop-color="#FFF3B8" />
+              <stop offset="100%" stop-color="#B6801D" />
+            </linearGradient>
+          </defs>
+          <rect id="svg-gold-rect" x="13" y="18" width="894" height="1325" rx="6" ry="6" fill="none" stroke="url(#goldGrad)" stroke-width="4.5" stroke-dasharray="4440" stroke-dashoffset="4440" />
+        </svg>
+
+        <div id="layer-gold-frame" class="inv-layer" data-layout-ignore="true" style="left:5.4px;top:10.8px;width:910.6px;height:1340.5px;z-index:10;background-image:url('assets/layers/gold-frame.png');"></div>
+        <div id="layer-bg-stars-top" class="inv-layer" data-layout-ignore="true" style="left:172.7px;top:33.7px;width:577.4px;height:329.1px;z-index:11;background-image:url('assets/layers/bg-stars-top.png');"></div>
+        <div id="layer-cap-ribbon-left" class="inv-layer" data-layout-ignore="true" style="left:20.2px;top:145.7px;width:180.8px;height:550.2px;z-index:12;background-image:url('assets/layers/cap-ribbon-left.png');"></div>
+        <div id="layer-cap-ribbon-right" class="inv-layer" data-layout-ignore="true" style="left:719px;top:145.7px;width:180.8px;height:550.2px;z-index:13;background-image:url('assets/layers/cap-ribbon-right.png');"></div>
+        <div id="layer-flower-tl" class="inv-layer" data-layout-ignore="true" style="left:0px;top:0px;width:295.4px;height:223.9px;z-index:14;background-image:url('assets/layers/flower-tl.png');"></div>
+        <div id="layer-flower-tr" class="inv-layer" data-layout-ignore="true" style="left:624.6px;top:0px;width:295.4px;height:223.9px;z-index:15;background-image:url('assets/layers/flower-tr.png');"></div>
+        <div id="layer-child-girl" class="inv-layer" data-layout-ignore="true" style="left:345.3px;top:24.3px;width:362.9px;height:353.3px;z-index:16;background-image:url('assets/layers/child-girl.png');"></div>
+        <div id="layer-child-boy" class="inv-layer" data-layout-ignore="true" style="left:276.5px;top:10.8px;width:171.3px;height:387.1px;z-index:17;background-image:url('assets/layers/child-boy.png');"></div>
+        <div id="layer-crown-divider-top" class="inv-layer" data-layout-ignore="true" style="left:199.6px;top:365.5px;width:522.1px;height:37.8px;z-index:18;background-image:url('assets/layers/crown-divider-top.png');"></div>
+        <div id="layer-mini-cap-left" class="inv-layer" data-layout-ignore="true" style="left:107.9px;top:391.1px;width:75.5px;height:58px;z-index:19;background-image:url('assets/layers/mini-cap-left.png');"></div>
+        <div id="layer-header-invitacion" class="inv-layer" data-layout-ignore="true" style="left:186.2px;top:401.9px;width:555.8px;height:47.2px;z-index:20;background-image:url('assets/layers/header-invitacion.png');"></div>
+        <div id="layer-mini-cap-right" class="inv-layer" data-layout-ignore="true" style="left:743.3px;top:391.1px;width:74.2px;height:58px;z-index:21;background-image:url('assets/layers/mini-cap-right.png');"></div>
+        <div id="layer-ribbon-top-empty" class="inv-layer" data-layout-ignore="true" style="left:70.1px;top:520.6px;width:781.1px;height:111.9px;z-index:22;background-image:url('assets/layers/ribbon-top-empty.png');"></div>
+        <div id="layer-ribbon-top-text" class="inv-layer" data-layout-ignore="true" style="left:210.4px;top:527.3px;width:501.8px;height:52.6px;z-index:23;background-image:url('assets/layers/ribbon-top-text.png');"></div>
+        <div id="layer-title-promocion" class="inv-layer" data-layout-ignore="true" style="left:86.3px;top:449.1px;width:752.7px;height:107.9px;z-index:24;background-image:url('assets/layers/title-promocion.png');"></div>
+        <div id="layer-intro-line-1" class="inv-layer" data-layout-ignore="true" style="left:207.7px;top:586.7px;width:546.3px;height:33.7px;z-index:25;background-image:url('assets/layers/intro-line-1.png');"></div>
+        <div id="layer-intro-line-2" class="inv-layer" data-layout-ignore="true" style="left:236.1px;top:619px;width:456px;height:24.3px;z-index:26;background-image:url('assets/layers/intro-line-2.png');"></div>
+        <div id="layer-madrina-wing-left" class="inv-layer" data-layout-ignore="true" style="left:83.6px;top:677px;width:55.3px;height:99.8px;z-index:27;background-image:url('assets/layers/madrina-wing-left.png');"></div>
+        <div id="layer-madrina-wing-right" class="inv-layer" data-layout-ignore="true" style="left:789.1px;top:677px;width:56.7px;height:99.8px;z-index:28;background-image:url('assets/layers/madrina-wing-right.png');"></div>
+        <div id="layer-madrina-plaque-empty" class="inv-layer" data-layout-ignore="true" style="left:138.9px;top:655.4px;width:650.2px;height:143px;z-index:29;background-image:url('assets/layers/madrina-plaque-empty.png');"></div>
+        <div id="layer-madrina-crown" class="inv-layer" data-layout-ignore="true" style="left:388.5px;top:637.9px;width:148.4px;height:28.3px;z-index:30;background-image:url('assets/layers/madrina-crown.png');"></div>
+        <div id="layer-madrina-role-text" class="inv-layer" data-layout-ignore="true" style="left:191.6px;top:671.6px;width:540.9px;height:47.2px;z-index:31;background-image:url('assets/layers/padrino-role-text.png');"></div>
+        <div id="layer-madrina-name-text" class="inv-layer" data-layout-ignore="true" style="left:170px;top:717.5px;width:584.1px;height:70.1px;z-index:32;background-image:url('assets/layers/padrino-name-text.png');"></div>
+        <div id="layer-fiesta-lead" class="inv-layer" data-layout-ignore="true" style="left:186.2px;top:803.8px;width:557.1px;height:36.4px;z-index:33;background-image:url('assets/layers/fiesta-lead.png');"></div>
+        <div id="layer-fiesta-wing-left" class="inv-layer" data-layout-ignore="true" style="left:64.8px;top:838.8px;width:56.7px;height:66.1px;z-index:34;background-image:url('assets/layers/fiesta-wing-left.png');"></div>
+        <div id="layer-fiesta-title" class="inv-layer" data-layout-ignore="true" style="left:121.4px;top:838.8px;width:693.4px;height:66.1px;z-index:35;background-image:url('assets/layers/fiesta-title.png');"></div>
+        <div id="layer-fiesta-wing-right" class="inv-layer" data-layout-ignore="true" style="left:814.8px;top:838.8px;width:52.6px;height:66.1px;z-index:36;background-image:url('assets/layers/fiesta-wing-right.png');"></div>
+        <div id="layer-fiesta-sub-1" class="inv-layer" data-layout-ignore="true" style="left:183.5px;top:909px;width:600.3px;height:31px;z-index:37;background-image:url('assets/layers/fiesta-sub-1.png');"></div>
+        <div id="layer-fiesta-sub-2" class="inv-layer" data-layout-ignore="true" style="left:323.8px;top:940px;width:292.7px;height:27px;z-index:38;background-image:url('assets/layers/fiesta-sub-2.png');"></div>
+        <div id="layer-detail-calendar-icon" class="inv-layer" data-layout-ignore="true" style="left:80.9px;top:977.8px;width:72.8px;height:83.6px;z-index:39;background-image:url('assets/layers/detail-calendar-icon.png');"></div>
+        <div id="layer-divider-v1" class="inv-layer" data-layout-ignore="true" style="left:155.1px;top:977.8px;width:13.5px;height:89px;z-index:40;background-image:url('assets/layers/divider-v1.png');"></div>
+        <div id="layer-detail-dia-text" class="inv-layer" data-layout-ignore="true" style="left:170px;top:977.8px;width:199.6px;height:89px;z-index:41;background-image:url('assets/layers/detail-dia-text.png');"></div>
+        <div id="layer-divider-v2" class="inv-layer" data-layout-ignore="true" style="left:372.3px;top:977.8px;width:14.8px;height:89px;z-index:42;background-image:url('assets/layers/divider-v2.png');"></div>
+        <div id="layer-detail-pin-icon" class="inv-layer" data-layout-ignore="true" style="left:391.2px;top:977.8px;width:63.4px;height:83.6px;z-index:43;background-image:url('assets/layers/detail-pin-icon.png');"></div>
+        <div id="layer-detail-lugar-text" class="inv-layer" data-layout-ignore="true" style="left:458.7px;top:977.8px;width:144.3px;height:89px;z-index:44;background-image:url('assets/layers/detail-lugar-text.png');"></div>
+        <div id="layer-divider-v3" class="inv-layer" data-layout-ignore="true" style="left:607px;top:977.8px;width:14.8px;height:89px;z-index:45;background-image:url('assets/layers/divider-v3.png');"></div>
+        <div id="layer-detail-clock-icon" class="inv-layer" data-layout-ignore="true" style="left:625.9px;top:977.8px;width:82.3px;height:85px;z-index:46;background-image:url('assets/layers/detail-clock-icon.png');"></div>
+        <div id="layer-detail-hora-text" class="inv-layer" data-layout-ignore="true" style="left:709.6px;top:995.3px;width:157.8px;height:55.3px;z-index:47;background-image:url('assets/layers/detail-hora-text.png');"></div>
+        <div id="layer-divider-dots" class="inv-layer" data-layout-ignore="true" style="left:364.2px;top:1066.8px;width:197px;height:18.9px;z-index:48;background-image:url('assets/layers/divider-dots.png');"></div>
+        <div id="layer-emotional-line-1" class="inv-layer" data-layout-ignore="true" style="left:141.6px;top:1085.6px;width:644.8px;height:29.7px;z-index:49;background-image:url('assets/layers/emotional-line-1.png');"></div>
+        <div id="layer-emotional-line-2" class="inv-layer" data-layout-ignore="true" style="left:199.6px;top:1115.3px;width:524.8px;height:27px;z-index:50;background-image:url('assets/layers/emotional-line-2.png');"></div>
+        <div id="layer-ribbon-bottom-empty" class="inv-layer" data-layout-ignore="true" style="left:180.8px;top:1143.6px;width:570.6px;height:60.7px;z-index:51;background-image:url('assets/layers/ribbon-bottom-empty.png');"></div>
+        <div id="layer-ribbon-bottom-text" class="inv-layer" data-layout-ignore="true" style="left:232px;top:1147.7px;width:465.4px;height:47.2px;z-index:52;background-image:url('assets/layers/ribbon-bottom-text.png');"></div>
+        <div id="layer-closing-line-1" class="inv-layer" data-layout-ignore="true" style="left:222.6px;top:1207px;width:480.2px;height:29.7px;z-index:53;background-image:url('assets/layers/closing-line-1.png');"></div>
+        <div id="layer-closing-line-2" class="inv-layer" data-layout-ignore="true" style="left:310.3px;top:1236.7px;width:300.8px;height:25.6px;z-index:54;background-image:url('assets/layers/closing-line-2.png');"></div>
+        <div id="layer-bottom-heart" class="inv-layer" data-layout-ignore="true" style="left:348px;top:1263.7px;width:225.3px;height:44.5px;z-index:55;background-image:url('assets/layers/bottom-heart.png');"></div>
+        <div id="layer-flower-bl" class="inv-layer" data-layout-ignore="true" style="left:0px;top:1058.7px;width:338.6px;height:322.3px;z-index:56;background-image:url('assets/layers/flower-bl.png');"></div>
+        <div id="layer-flower-br" class="inv-layer" data-layout-ignore="true" style="left:582.8px;top:1058.7px;width:337.2px;height:322.3px;z-index:57;background-image:url('assets/layers/flower-br.png');"></div>
+
+        <div id="sweep-promo-box" class="light-sweep-container" data-layout-ignore="true" style="left:80px;top:445px;width:760px;height:115px;"><div id="sweep-promo-beam" class="light-sweep-beam"></div></div>
+        <div id="sweep-madrina-box" class="light-sweep-container" data-layout-ignore="true" style="left:135px;top:652px;width:655px;height:148px;border-radius:74px;"><div id="sweep-madrina-beam" class="light-sweep-beam"></div></div>
+        <div id="sweep-fiesta-box" class="light-sweep-container" data-layout-ignore="true" style="left:60px;top:832px;width:800px;height:78px;"><div id="sweep-fiesta-beam" class="light-sweep-beam"></div></div>
+        <div id="sweep-finale-box" class="light-sweep-container" data-layout-ignore="true" style="left:0px;top:0px;width:920px;height:1381px;"><div id="sweep-finale-beam" class="light-sweep-beam"></div></div>
+
+        <svg id="sparkle-cap-left" class="star-sparkle" data-layout-ignore="true" style="left:115px;top:175px;" viewBox="0 0 100 100"><path d="M50 0 L58 38 L96 46 L62 60 L70 98 L50 72 L30 98 L38 60 L4 46 L42 38 Z" fill="#FFE875" /></svg>
+        <svg id="sparkle-cap-right" class="star-sparkle" data-layout-ignore="true" style="left:760px;top:175px;" viewBox="0 0 100 100"><path d="M50 0 L58 38 L96 46 L62 60 L70 98 L50 72 L30 98 L38 60 L4 46 L42 38 Z" fill="#FFE875" /></svg>
+        <svg id="sparkle-crown-top" class="star-sparkle" data-layout-ignore="true" style="left:438px;top:358px;" viewBox="0 0 100 100"><path d="M50 0 L58 38 L96 46 L62 60 L70 98 L50 72 L30 98 L38 60 L4 46 L42 38 Z" fill="#FFF280" /></svg>
+        <svg id="sparkle-madrina-crown" class="star-sparkle" data-layout-ignore="true" style="left:440px;top:625px;" viewBox="0 0 100 100"><path d="M50 0 L58 38 L96 46 L62 60 L70 98 L50 72 L30 98 L38 60 L4 46 L42 38 Z" fill="#FFF280" /></svg>
+        <svg id="sparkle-pen" class="star-sparkle" data-layout-ignore="true" style="left:225px;top:728px;width:42px;height:42px;" viewBox="0 0 100 100"><path d="M50 0 L60 38 L98 50 L60 62 L50 98 L40 62 L2 50 L40 38 Z" fill="#FFF799" /></svg>
+        <svg id="sparkle-fiesta-left" class="star-sparkle" data-layout-ignore="true" style="left:72px;top:848px;" viewBox="0 0 100 100"><path d="M50 5 L60 38 L95 50 L60 62 L50 95 L40 62 L5 50 L40 38 Z" fill="#FFEB7A" /></svg>
+        <svg id="sparkle-fiesta-right" class="star-sparkle" data-layout-ignore="true" style="left:802px;top:848px;" viewBox="0 0 100 100"><path d="M50 5 L60 38 L95 50 L60 62 L50 95 L40 62 L5 50 L40 38 Z" fill="#FFEB7A" /></svg>
+        <svg id="sparkle-calendar" class="star-sparkle" data-layout-ignore="true" style="left:98px;top:1006px;width:36px;height:36px;" viewBox="0 0 100 100"><path d="M50 5 L60 38 L95 50 L60 62 L50 95 L40 62 L5 50 L40 38 Z" fill="#FFF280" /></svg>
+        <svg id="sparkle-pin" class="star-sparkle" data-layout-ignore="true" style="left:405px;top:998px;width:36px;height:36px;" viewBox="0 0 100 100"><path d="M50 5 L60 38 L95 50 L60 62 L50 95 L40 62 L5 50 L40 38 Z" fill="#FFF280" /></svg>
+        <svg id="sparkle-clock" class="star-sparkle" data-layout-ignore="true" style="left:648px;top:1002px;width:36px;height:36px;" viewBox="0 0 100 100"><path d="M50 5 L60 38 L95 50 L60 62 L50 95 L40 62 L5 50 L40 38 Z" fill="#FFF280" /></svg>
+        <svg id="sparkle-heart-bottom" class="star-sparkle" data-layout-ignore="true" style="left:441px;top:1262px;width:38px;height:38px;" viewBox="0 0 100 100"><path d="M50 0 L58 38 L96 46 L62 60 L70 98 L50 72 L30 98 L38 60 L4 46 L42 38 Z" fill="#FFF280" /></svg>
+
+        <div id="card-border-gleam" data-layout-ignore="true"></div>
+      </div>
+    </div>
+
+    <div id="particles-stage" data-layout-ignore="true">
+      <div class="gold-dust" id="dust-0" style="left:120px;top:400px;width:6px;height:6px;"></div><div class="gold-dust" id="dust-1" style="left:240px;top:600px;width:8px;height:8px;"></div><div class="gold-dust" id="dust-2" style="left:380px;top:320px;width:5px;height:5px;"></div>
+      <div class="gold-dust" id="dust-3" style="left:540px;top:520px;width:7px;height:7px;"></div><div class="gold-dust" id="dust-4" style="left:720px;top:360px;width:6px;height:6px;"></div><div class="gold-dust" id="dust-5" style="left:880px;top:580px;width:9px;height:9px;"></div>
+      <div class="gold-dust" id="dust-6" style="left:160px;top:900px;width:7px;height:7px;"></div><div class="gold-dust" id="dust-7" style="left:310px;top:1050px;width:5px;height:5px;"></div><div class="gold-dust" id="dust-8" style="left:490px;top:980px;width:8px;height:8px;"></div>
+      <div class="gold-dust" id="dust-9" style="left:670px;top:1120px;width:6px;height:6px;"></div><div class="gold-dust" id="dust-10" style="left:840px;top:940px;width:7px;height:7px;"></div><div class="gold-dust" id="dust-11" style="left:200px;top:1400px;width:8px;height:8px;"></div>
+      <div class="gold-dust" id="dust-12" style="left:450px;top:1520px;width:6px;height:6px;"></div><div class="gold-dust" id="dust-13" style="left:750px;top:1450px;width:8px;height:8px;"></div><div class="gold-dust" id="dust-14" style="left:900px;top:1580px;width:5px;height:5px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Initialize all layers on the clean watercolor paper canvas (Frame 0 shows card + blooming top roses for thumbnail)
+    gsap.set("#camera-stage", { scale: 1.08, x: 0, y: 120 });
+    gsap.set("#card-wrapper", { opacity: 1, scale: 1, transformOrigin: "center center" });
+    gsap.set("#card-border-gleam", { opacity: 0.65 });
+    gsap.set("#svg-gold-rect", { strokeDashoffset: 3200, opacity: 1 });
+    gsap.set(".light-sweep-beam", { xPercent: -130 });
+    gsap.set(".star-sparkle", { scale: 0, rotation: -45, opacity: 0, transformOrigin: "center center" });
+    gsap.set(".bokeh-orb", { opacity: 0.45, scale: 0.95 });
+    gsap.set(".gold-dust", { opacity: 0.2, y: 0 });
+
+    gsap.set("#layer-gold-frame", { opacity: 0.35 });
+    gsap.set("#layer-flower-tl", { opacity: 0.85, scale: 0.78, rotation: -6, x: -12, y: -12, transformOrigin: "left top" });
+    gsap.set("#layer-flower-tr", { opacity: 0.85, scale: 0.78, rotation: 6, x: 12, y: -12, transformOrigin: "right top" });
+    gsap.set(["#layer-cap-ribbon-left", "#layer-cap-ribbon-right"], { opacity: 1, clipPath: "inset(0% 0% 100% 0%)", transformOrigin: "top center" });
+    gsap.set(["#layer-child-boy", "#layer-child-girl"], { opacity: 0, scale: 0.78, y: 38, filter: "blur(6px)", transformOrigin: "center bottom" });
+    gsap.set("#layer-bg-stars-top", { opacity: 0, scale: 0.7, transformOrigin: "center center" });
+    gsap.set("#layer-crown-divider-top", { opacity: 0, scaleX: 0.15, scaleY: 0.6, transformOrigin: "center center" });
+
+    gsap.set("#layer-mini-cap-left", { opacity: 0, scale: 0.3, rotation: -20, x: -20, transformOrigin: "center center" });
+    gsap.set("#layer-mini-cap-right", { opacity: 0, scale: 0.3, rotation: 20, x: 20, transformOrigin: "center center" });
+    gsap.set("#layer-header-invitacion", { opacity: 0, y: 14, filter: "blur(8px)", transformOrigin: "center center" });
+    gsap.set("#layer-title-promocion", { opacity: 0, scale: 0.82, y: 18, filter: "blur(10px)", transformOrigin: "center center" });
+    gsap.set("#layer-ribbon-top-empty", { opacity: 0, scaleX: 0.35, scaleY: 0.85, transformOrigin: "center center" });
+    gsap.set(["#layer-ribbon-top-text", "#layer-ribbon-bottom-text"], { opacity: 1, clipPath: "inset(0% 50% 0% 50%)" });
+    gsap.set(["#layer-intro-line-1", "#layer-intro-line-2", "#layer-fiesta-lead", "#layer-fiesta-sub-1", "#layer-fiesta-sub-2", "#layer-emotional-line-1", "#layer-emotional-line-2", "#layer-closing-line-1", "#layer-closing-line-2"], { opacity: 0, y: 12, filter: "blur(5px)" });
+
+    gsap.set("#layer-madrina-crown", { opacity: 0, scale: 0.3, y: -18, transformOrigin: "center bottom" });
+    gsap.set("#layer-madrina-plaque-empty", { opacity: 0, scale: 0.72, filter: "blur(8px)", transformOrigin: "center center" });
+    gsap.set("#layer-madrina-wing-left", { opacity: 0, scale: 0.3, x: 25, rotation: 25, transformOrigin: "right center" });
+    gsap.set("#layer-madrina-wing-right", { opacity: 0, scale: 0.3, x: -25, rotation: -25, transformOrigin: "left center" });
+    gsap.set("#layer-madrina-role-text", { opacity: 0, y: 10, filter: "blur(6px)" });
+    gsap.set("#layer-madrina-name-text", { opacity: 1, clipPath: "inset(0% 100% 0% 0%)" });
+    gsap.set("#layer-fiesta-title", { opacity: 0, scale: 0.78, filter: "blur(10px)", transformOrigin: "center center" });
+    gsap.set("#layer-fiesta-wing-left", { opacity: 0, scale: 0.2, x: 20, transformOrigin: "right center" });
+    gsap.set("#layer-fiesta-wing-right", { opacity: 0, scale: 0.2, x: -20, transformOrigin: "left center" });
+
+    gsap.set("#layer-detail-calendar-icon", { opacity: 0, scale: 0.3, rotation: -12, transformOrigin: "center center" });
+    gsap.set(["#layer-divider-v1", "#layer-divider-v2", "#layer-divider-v3"], { opacity: 1, clipPath: "inset(0% 0% 100% 0%)" });
+    gsap.set(["#layer-detail-dia-text", "#layer-detail-lugar-text", "#layer-detail-hora-text"], { opacity: 0, x: -16, filter: "blur(6px)" });
+    gsap.set("#layer-detail-pin-icon", { opacity: 0, scale: 0.3, y: -28, transformOrigin: "center bottom" });
+    gsap.set("#layer-detail-clock-icon", { opacity: 0, scale: 0.3, rotation: -90, transformOrigin: "center center" });
+    gsap.set("#layer-divider-dots", { opacity: 0, scaleX: 0.1, transformOrigin: "center center" });
+    gsap.set("#layer-ribbon-bottom-empty", { opacity: 0, scaleX: 0.35, transformOrigin: "center center" });
+    gsap.set("#layer-bottom-heart", { opacity: 0, scale: 0.3, transformOrigin: "center center" });
+    gsap.set("#layer-flower-bl", { opacity: 0, scale: 0.45, rotation: 10, x: -35, y: 35, transformOrigin: "left bottom" });
+    gsap.set("#layer-flower-br", { opacity: 0, scale: 0.45, rotation: -10, x: 35, y: 35, transformOrigin: "right bottom" });
+
+    // SHOT 1 (0.0s - 3.6s): Lienzo, Marco Dorado, Flores Superiores y Birretes Laterales
+    tl.to("#camera-stage", { scale: 1.16, x: 0, y: 240, duration: 3.5, ease: "power2.inOut" }, 0.05);
+    tl.to("#svg-gold-rect", { strokeDashoffset: 0, duration: 1.7, ease: "power2.inOut" }, 0.05);
+    tl.to("#layer-gold-frame", { opacity: 1, duration: 0.8, ease: "power2.out" }, 1.1);
+    tl.to("#svg-gold-rect", { opacity: 0, duration: 0.6, ease: "power2.out" }, 1.6);
+    tl.to("#card-border-gleam", { opacity: 0.9, duration: 1.2, ease: "sine.inOut" }, 0.4);
+
+    tl.to("#layer-flower-tl", { opacity: 1, scale: 1, rotation: 0, x: 0, y: 0, duration: 1.0, ease: "back.out(1.4)" }, 0.15);
+    tl.to("#layer-flower-tr", { opacity: 1, scale: 1, rotation: 0, x: 0, y: 0, duration: 1.0, ease: "back.out(1.4)" }, 0.35);
+    tl.to("#layer-cap-ribbon-left", { clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "power3.out" }, 1.5);
+    tl.to("#layer-cap-ribbon-right", { clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "power3.out" }, 1.7);
+
+    tl.to("#sparkle-cap-left", { scale: 1.15, rotation: 45, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.2);
+    tl.to("#sparkle-cap-left", { scale: 0, rotation: 90, opacity: 0, duration: 0.5, ease: "power2.in" }, 2.9);
+    tl.to("#sparkle-cap-right", { scale: 1.15, rotation: 45, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 2.4);
+    tl.to("#sparkle-cap-right", { scale: 0, rotation: 90, opacity: 0, duration: 0.5, ease: "power2.in" }, 3.1);
+
+    // SHOT 2 (3.6s - 7.8s): Zoom a los Niños Graduados, Estrellas y Corona Divisoria
+    tl.to("#camera-stage", { scale: 1.38, x: 0, y: 470, duration: 1.6, ease: "power2.inOut" }, 3.6);
+    tl.to("#layer-child-boy", { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 1.0, ease: "back.out(1.3)" }, 4.1);
+    tl.to("#layer-child-girl", { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 1.0, ease: "back.out(1.3)" }, 4.7);
+    tl.to("#layer-bg-stars-top", { opacity: 1, scale: 1, duration: 0.9, ease: "back.out(1.6)" }, 5.3);
+    tl.to("#layer-crown-divider-top", { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.9, ease: "expo.out" }, 5.9);
+    tl.to("#sparkle-crown-top", { scale: 1.25, rotation: 60, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 6.1);
+    tl.to("#sparkle-crown-top", { scale: 0, rotation: 120, opacity: 0, duration: 0.5, ease: "power2.in" }, 6.8);
+
+    tl.to("#camera-stage", { scale: 1.40, y: 460, duration: 1.8, ease: "none" }, 5.4);
+    tl.to("#layer-child-boy", { scaleY: 1.015, duration: 1.1, ease: "sine.inOut" }, 5.5);
+    tl.to("#layer-child-boy", { scaleY: 1.0, duration: 1.1, ease: "sine.inOut" }, 6.6);
+    tl.to("#layer-child-girl", { scaleY: 1.015, duration: 1.1, ease: "sine.inOut" }, 5.7);
+    tl.to("#layer-child-girl", { scaleY: 1.0, duration: 1.1, ease: "sine.inOut" }, 6.8);
+
+    // SHOT 3 (7.8s - 12.2s): "INVITACIÓN ESPECIAL", "PROMOCIÓN 2026", Cinta Superior y Dedicatoria
+    tl.to("#camera-stage", { scale: 1.22, x: 0, y: 170, duration: 1.5, ease: "power2.inOut" }, 7.6);
+    tl.to("#layer-mini-cap-left", { opacity: 1, scale: 1, rotation: 0, x: 0, duration: 0.65, ease: "back.out(1.6)" }, 8.0);
+    tl.to("#layer-mini-cap-right", { opacity: 1, scale: 1, rotation: 0, x: 0, duration: 0.65, ease: "back.out(1.6)" }, 8.1);
+    tl.to("#layer-header-invitacion", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.65, ease: "power4.out" }, 8.15);
+    tl.to("#layer-title-promocion", { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 0.85, ease: "back.out(1.35)" }, 8.65);
+    tl.to("#sweep-promo-beam", { xPercent: 130, duration: 1.3, ease: "power2.inOut" }, 9.1);
+
+    tl.to("#layer-ribbon-top-empty", { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.75, ease: "back.out(1.2)" }, 9.6);
+    tl.to("#layer-ribbon-top-text", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.75, ease: "power3.out" }, 10.0);
+    tl.to("#layer-intro-line-1", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 10.65);
+    tl.to("#layer-intro-line-2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 11.05);
+    tl.to("#camera-stage", { scale: 1.24, y: 155, duration: 2.8, ease: "none" }, 9.2);
+
+    // SHOT 4 (12.2s - 17.0s): Zoom a la Placa de la Madrina de Promoción (Prof.ª Rossy Guzmán Reyes)
+    tl.to("#camera-stage", { scale: 1.28, x: 0, y: -38, duration: 1.4, ease: "power2.inOut" }, 12.1);
+    tl.to("#layer-madrina-crown", { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: "back.out(1.6)" }, 12.6);
+    tl.to("#sparkle-madrina-crown", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.55, ease: "back.out(1.5)" }, 12.75);
+    tl.to("#sparkle-madrina-crown", { scale: 0, rotation: 120, opacity: 0, duration: 0.45, ease: "power2.in" }, 13.35);
+
+    tl.to("#layer-madrina-plaque-empty", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.8, ease: "back.out(1.3)" }, 12.95);
+    tl.to("#layer-madrina-wing-left", { opacity: 1, scale: 1, x: 0, rotation: 0, duration: 0.65, ease: "back.out(1.6)" }, 13.4);
+    tl.to("#layer-madrina-wing-right", { opacity: 1, scale: 1, x: 0, rotation: 0, duration: 0.65, ease: "back.out(1.6)" }, 13.5);
+    tl.to("#layer-madrina-role-text", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 13.8);
+
+    tl.to("#layer-madrina-name-text", { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "power2.inOut" }, 14.3);
+    tl.to("#sparkle-pen", { scale: 1.15, opacity: 1, duration: 0.25, ease: "power2.out" }, 14.25);
+    tl.to("#sparkle-pen", { x: 470, rotation: 225, duration: 1.5, ease: "power2.inOut" }, 14.3);
+    tl.to("#sparkle-pen", { scale: 0, opacity: 0, duration: 0.35, ease: "power2.in" }, 15.8);
+    tl.to("#sweep-madrina-beam", { xPercent: 130, duration: 1.2, ease: "power2.inOut" }, 15.6);
+    tl.to("#camera-stage", { scale: 1.30, y: -44, duration: 3.3, ease: "none" }, 13.6);
+
+    // SHOT 5 (17.0s - 20.8s): "¡FIESTA DE PROMOCIÓN!" y Culminación de Etapa
+    tl.to("#camera-stage", { scale: 1.22, x: 0, y: -225, duration: 1.3, ease: "power2.inOut" }, 16.9);
+    tl.to("#layer-fiesta-lead", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 17.4);
+    tl.to("#layer-fiesta-title", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.8, ease: "back.out(1.4)" }, 17.85);
+    tl.to("#layer-fiesta-wing-left", { opacity: 1, scale: 1, x: 0, duration: 0.6, ease: "back.out(1.7)" }, 18.2);
+    tl.to("#layer-fiesta-wing-right", { opacity: 1, scale: 1, x: 0, duration: 0.6, ease: "back.out(1.7)" }, 18.3);
+
+    tl.to("#sweep-fiesta-beam", { xPercent: 130, duration: 1.2, ease: "power2.inOut" }, 18.35);
+    tl.to("#sparkle-fiesta-left", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 18.35);
+    tl.to("#sparkle-fiesta-left", { scale: 0, rotation: 120, opacity: 0, duration: 0.45, ease: "power2.in" }, 18.95);
+    tl.to("#sparkle-fiesta-right", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 18.5);
+    tl.to("#sparkle-fiesta-right", { scale: 0, rotation: 120, opacity: 0, duration: 0.45, ease: "power2.in" }, 19.1);
+
+    tl.to("#layer-fiesta-sub-1", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 19.0);
+    tl.to("#layer-fiesta-sub-2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 19.35);
+    tl.to("#camera-stage", { scale: 1.24, y: -232, duration: 2.5, ease: "none" }, 18.2);
+
+    // SHOT 6 (20.8s - 25.4s): Zoom y Recorrido por Día, Lugar y Hora
+    tl.to("#camera-stage", { scale: 1.25, x: 60, y: -320, duration: 1.15, ease: "power2.inOut" }, 20.7);
+    tl.to("#layer-detail-calendar-icon", { opacity: 1, scale: 1, rotation: 0, duration: 0.65, ease: "back.out(1.6)" }, 21.2);
+    tl.to("#sparkle-calendar", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 21.45);
+    tl.to("#sparkle-calendar", { scale: 0, rotation: 120, opacity: 0, duration: 0.4, ease: "power2.in" }, 21.95);
+    tl.to("#layer-divider-v1", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 21.4);
+    tl.to("#layer-detail-dia-text", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 21.55);
+
+    tl.to("#camera-stage", { scale: 1.25, x: 0, y: -320, duration: 1.0, ease: "power2.inOut" }, 22.25);
+    tl.to("#layer-divider-v2", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 22.55);
+    tl.to("#layer-detail-pin-icon", { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: "back.out(1.7)" }, 22.65);
+    tl.to("#sparkle-pin", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 22.9);
+    tl.to("#sparkle-pin", { scale: 0, rotation: 120, opacity: 0, duration: 0.4, ease: "power2.in" }, 23.4);
+    tl.to("#layer-detail-lugar-text", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 22.85);
+
+    tl.to("#camera-stage", { scale: 1.25, x: -60, y: -320, duration: 1.0, ease: "power2.inOut" }, 23.65);
+    tl.to("#layer-divider-v3", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.out" }, 23.95);
+    tl.to("#layer-detail-clock-icon", { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.5)" }, 24.05);
+    tl.to("#sparkle-clock", { scale: 1.2, rotation: 60, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 24.3);
+    tl.to("#sparkle-clock", { scale: 0, rotation: 120, opacity: 0, duration: 0.4, ease: "power2.in" }, 24.8);
+    tl.to("#layer-detail-hora-text", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 24.25);
+
+    // SHOT 7 (25.4s - 30.0s): Cierre Emotivo y Gran Vista Global de la Invitación Construida
+    tl.to("#camera-stage", { scale: 1.18, x: 0, y: -340, duration: 1.1, ease: "power2.inOut" }, 25.1);
+    tl.to("#layer-divider-dots", { opacity: 1, scaleX: 1, duration: 0.5, ease: "expo.out" }, 25.25);
+    tl.to("#layer-emotional-line-1", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 25.4);
+    tl.to("#layer-emotional-line-2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 25.65);
+
+    tl.to("#layer-ribbon-bottom-empty", { opacity: 1, scaleX: 1, duration: 0.6, ease: "back.out(1.3)" }, 25.95);
+    tl.to("#layer-ribbon-bottom-text", { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power3.out" }, 26.2);
+    tl.to("#layer-closing-line-1", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 26.5);
+    tl.to("#layer-closing-line-2", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 26.75);
+    tl.to("#layer-bottom-heart", { opacity: 1, scale: 1, duration: 0.65, ease: "back.out(1.6)" }, 26.95);
+
+    tl.to("#layer-flower-bl", { opacity: 1, scale: 1, rotation: 0, x: 0, y: 0, duration: 0.95, ease: "back.out(1.4)" }, 26.6);
+    tl.to("#layer-flower-br", { opacity: 1, scale: 1, rotation: 0, x: 0, y: 0, duration: 0.95, ease: "back.out(1.4)" }, 26.75);
+
+    tl.to("#camera-stage", { scale: 1.0, x: 0, y: 0, duration: 1.6, ease: "power3.inOut" }, 26.8);
+    tl.to("#camera-stage", { scale: 1.008, y: -3, duration: 1.5, ease: "sine.inOut" }, 28.4);
+
+    tl.to("#sweep-finale-beam", { xPercent: 130, duration: 1.6, ease: "power2.inOut" }, 27.6);
+    tl.to("#sparkle-heart-bottom", { scale: 1.3, rotation: 90, opacity: 1, duration: 0.7, ease: "back.out(1.5)" }, 27.6);
+    tl.to("#sparkle-heart-bottom", { scale: 0.85, opacity: 0.8, duration: 1.2, ease: "sine.inOut" }, 28.4);
+    tl.to("#card-border-gleam", { opacity: 1.0, duration: 1.2, ease: "sine.inOut" }, 27.8);
+
+    const dustElements = document.querySelectorAll(".gold-dust");
+    dustElements.forEach((el, index) => {
+      const speed = 18 + (index % 5) * 2.5;
+      const startY = (index % 4) * 20;
+      const endY = -120 - (index % 6) * 30;
+      tl.fromTo(el, { opacity: 0.18, y: startY }, { opacity: 0.85, y: endY, duration: speed, ease: "none", immediateRender: false }, (index % 8) * 0.4);
+    });
+
+    window.__timelines["invitacion-scene"] = tl;
+  </script>
+</template>
